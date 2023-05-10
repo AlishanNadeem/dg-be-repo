@@ -42,9 +42,9 @@ async function bootstrap() {
   await app.listen(configService.get('app.port'));
 
   // Setup ngrok ingress
-  const session = await new NgrokSessionBuilder().authtokenFromEnv().connect();
-  const tunnel = await session.httpEndpoint().listen();
-  new Logger('main').log(`Ingress established at ${tunnel.url()}`);
-  tunnel.forwardTcp(`localhost:${configService.get('app.port')}`);
+  // const session = await new NgrokSessionBuilder().authtokenFromEnv().connect();
+  // const tunnel = await session.httpEndpoint().listen();
+  // new Logger('main').log(`Ingress established at ${tunnel.url()}`);
+  // tunnel.forwardTcp(`localhost:${configService.get('app.port')}`);
 }
 void bootstrap();
